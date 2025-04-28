@@ -1,0 +1,289 @@
+<head>
+  <meta charset="utf-8" />
+  <title>Field Goal Visualizations</title>
+</head>
+<body>
+    <h1>Field Goal Visualizations</h1>
+    <div>
+        <h2>Introduction</h2>
+        <p>
+            In football, a <a href="https://en.wikipedia.org/wiki/Field_goal">field goal</a> is a play where the team possessing the ball attempts to kick it through
+            the uprights on the other teams’ side of the field. If they succeed, they gain three points. Otherwise,
+            the other team gains possession where the kicking team kicked the ball from. These plays are
+            typically executed on 4th down or at the expiration of the half. Many factors go into a team’s decision
+            to kick a field goal or attempt a different play: the kicker’s skill, the weather, the score, the offense’s
+            ability to gain yards, and more. In recent years, the NFL has made more data publicly available.
+            Detailed play-by-play data now exists for every game played in the NFL each year. The data for this project was sourced 
+            <a href="https://github.com/nflverse/nflverse-data/releases/tag/pbp">here</a> for the 2024 season. Cleaning was performed on the data
+            to make it more relevant and fix some quality issues.
+        </p>
+    </div>
+    <div>
+        <h2>Field Goal Accuracy and Distance</h2>
+        <p>The visualization below shows how accuracy of field goals change as the kicks get farther away. By hovering over a bar, you can see
+            the distance kicked from, the number of kicks attempted from this distance, and the percentage of those kicks made. The color of the bar
+            is darker where the percentage made is higher. You can also filter stadium type (closed or open/no roof), wind speed, temperature, team,
+            and week the kick was attempted. Weeks 1-18 are in the regular season, while 19-22 are in the playoffs. The percentage of kicks made 
+            decreases as distance increases.
+        </p>
+        <div
+            class="tableauPlaceholder"
+            id="viz1745807359467"
+            style="position: relative; margin: auto;"
+        >
+            <noscript
+            ><a href="#"
+                ><img
+                alt="FG Accuracy by Distance "
+                src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;FGAccuracybyDistance&#47;1_rss.png"
+                style="border: none" /></a></noscript
+            ><object class="tableauViz" style="display: none">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="FieldGoals&#47;FGAccuracybyDistance" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param
+                name="static_image"
+                value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;FGAccuracybyDistance&#47;1.png"
+            />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+            </object>
+        </div>
+        <script type="text/javascript">
+            var divElement = document.getElementById("viz1745807359467");
+            var vizElement = divElement.getElementsByTagName("object")[0];
+            vizElement.style.width = "70vw";
+            vizElement.style.height = divElement.offsetWidth * 0.65 + "px";
+            var scriptElement = document.createElement("script");
+            scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+
+    <div>
+        <h2>Field Goal Percentage</h2>
+        <p>
+            This pie chart shows the percentage of field goals made, blocked, or missed. Hover over a section of the pie chart to see the number
+            of kicks in that category. This is also filterable. The postseason actually has a higher percentage of kicks made, but this could be due to 
+            a smaller sample size.
+        </p>
+        <div
+            class="tableauPlaceholder"
+            id="viz1745807109314"
+            style="position: relative; margin: auto;"
+        >
+            <noscript
+            ><a href="#"
+                ><img
+                alt="FG Percentage "
+                src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;FGPercentage&#47;1_rss.png"
+                style="border: none" /></a></noscript
+            ><object class="tableauViz" style="display: none">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="FieldGoals&#47;FGPercentage" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param
+                name="static_image"
+                value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;FGPercentage&#47;1.png"
+            />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+            </object>
+        </div>
+        <script type="text/javascript">
+            var divElement = document.getElementById("viz1745807109314");
+            var vizElement = divElement.getElementsByTagName("object")[0];
+            vizElement.style.width = "70vw";
+            vizElement.style.height = divElement.offsetWidth * 0.65 + "px";
+            var scriptElement = document.createElement("script");
+            scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+    <div>
+        <h2>Kick Distance versus Field Goal Probability</h2>
+        <p>
+            Field goal probability is an advanced statistic included with the nflverse play-by-play data. This gives the approximate
+            likelihood of a field goal being completed when it is kicked. As the distance of the kick increases, the probability goes down.
+            By hovering over a data point, you can see who kicked it and for what team, what the result of the kick was, what stadium the
+            kick happened at, the temperature and wind, and the current score differential. Similar filters exist from the other visualizations.
+        </p>
+        <div
+            class="tableauPlaceholder"
+            id="viz1745807222768"
+            style="position: relative; margin: auto;"
+        >
+            <noscript
+            ><a href="#"
+                ><img
+                alt="Kick Distance vs Field Goal Probability "
+                src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;DistancevsProbability&#47;1_rss.png"
+                style="border: none" /></a></noscript
+            ><object class="tableauViz" style="display: none">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="FieldGoals&#47;DistancevsProbability" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param
+                name="static_image"
+                value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;DistancevsProbability&#47;1.png"
+            />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+            </object>
+        </div>
+        <script type="text/javascript">
+            var divElement = document.getElementById("viz1745807222768");
+            var vizElement = divElement.getElementsByTagName("object")[0];
+            vizElement.style.width = "70vw";
+            vizElement.style.height = divElement.offsetWidth * 0.65 + "px";
+            var scriptElement = document.createElement("script");
+            scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+    <div>
+        <h2>Probability Heatmap</h2>
+        <p>
+            This shows the average field goal probability across five yard ranges for different NFL teams. The trend of longer distances
+            decreasing probability is visible here. The color is darker where teams are more likely to make field goals, and this allows you
+            to see which teams struggle more or less compared to others. Regions that are white are where that team has not kicked from.
+        </p>
+        <div
+            class="tableauPlaceholder"
+            id="viz1745807268930"
+            style="position: relative; margin: auto;"
+        >
+            <noscript
+            ><a href="#"
+                ><img
+                alt="Probability Heatmap "
+                src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;ProbabilityHeatmap&#47;1_rss.png"
+                style="border: none" /></a></noscript
+            ><object class="tableauViz" style="display: none">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="FieldGoals&#47;ProbabilityHeatmap" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param
+                name="static_image"
+                value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;ProbabilityHeatmap&#47;1.png"
+            />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+            </object>
+        </div>
+        <script type="text/javascript">
+            var divElement = document.getElementById("viz1745807268930");
+            var vizElement = divElement.getElementsByTagName("object")[0];
+            vizElement.style.width = "100%";
+            vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+            var scriptElement = document.createElement("script");
+            scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+    <div>
+        <h2>Kicker Salary and Accuracy</h2>
+        <p>
+            This bar chart explores how individual kickers perform compared to how much they were paid in 2024. The darker the bar, the more
+            accurate the kicker was. The highest paid kickers were not always the most accurate. NFL contracts are not negotiated every year,
+            so many kickers are paid according to their performance as of a few years ago. This is why some very accurate kickers are around
+            the middle of the payscale, while some more highly paid kickers struggled in 2024.
+        </p>
+        <div
+            class="tableauPlaceholder"
+            id="viz1745807055094"
+            style="position: relative; margin: auto;"
+        >
+            <noscript
+            ><a href="#"
+                ><img
+                alt="Kicker Salary and Accuracy "
+                src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;KickerSalaryandAccuracy&#47;1_rss.png"
+                style="border: none" /></a></noscript
+            ><object class="tableauViz" style="display: none">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="FieldGoals&#47;KickerSalaryandAccuracy" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param
+                name="static_image"
+                value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FieldGoals&#47;KickerSalaryandAccuracy&#47;1.png"
+            />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+            </object>
+        </div>
+        <script type="text/javascript">
+            var divElement = document.getElementById("viz1745807055094");
+            var vizElement = divElement.getElementsByTagName("object")[0];
+            vizElement.style.width = "70vw";
+            vizElement.style.height = divElement.offsetWidth * 0.65 + "px";
+            var scriptElement = document.createElement("script");
+            scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+</body>
+<style>
+    body {
+        background-color: #6A8D73;
+        color: white;
+        font-family: 'Arial';
+    }
+
+    div {
+        background-color: white;
+        border-radius: 8pt;
+        width: 80%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 10px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        color: #384D48;
+    }
+
+    p {
+        color: #384D48;
+    }
+</style>
